@@ -413,19 +413,15 @@ pub struct Event {
     #[serde(rename = "type")]
     pub kind: String,
 
-    /// Type of event
-    pub event: String,
-
     #[serde(flatten, skip_serializing_if = "Option::is_none")]
     pub body: Option<EventBody>,
 }
 
 impl Event {
     /// create an event of type `event`
-    pub fn make_event(event: &str, body: EventBody) -> Self {
+    pub fn make_event(body: EventBody) -> Self {
         Self {
             kind: "event".to_string(),
-            event: event.to_string(),
             body: Some(body), // to love
         }
     }
