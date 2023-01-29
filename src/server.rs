@@ -72,6 +72,9 @@ impl Server {
                                 })
                             }
                         }
+                    } else if buffer.eq("\r\n") || buffer.eq("\n") {
+                        tracing::trace!("HEADER: skipping empty line");
+                        continue;
                     } else {
                         return Err(ServerError::HeaderParseError { line: buffer });
                     }
