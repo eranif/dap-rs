@@ -284,7 +284,7 @@ pub struct Source {
     pub checksums: Option<Vec<Checksum>>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 pub struct SourceBreakpoint {
     /// The source line of the breakpoint or logpoint.
     pub line: i64,
@@ -384,7 +384,7 @@ pub struct Checksum {
 
 /// An ExceptionFilterOptions is used to specify an exception filter together with a condition for
 /// the setExceptionBreakpoints request.
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct ExceptionFilterOptions {
     /// ID of an exception filter returned by the `exceptionBreakpointFilters`
@@ -470,7 +470,7 @@ pub struct ExceptionOptions {
 /// Properties of a breakpoint passed to the setFunctionBreakpoints request.
 ///
 /// Specification: [FunctionBreakpoint](https://microsoft.github.io/debug-adapter-protocol/specification#Types_FunctionBreakpoint)
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct FunctionBreakpoint {
     /// The name of the function.
@@ -933,14 +933,14 @@ impl ToString for ThreadEventReason {
 fromstr_deser! { ThreadEventReason }
 tostr_ser! { ThreadEventReason }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct ValueFormat {
     /// Display the value in hex.
     pub hex: Option<bool>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct StackFrameFormat {
     /// Display the value in hex.
@@ -1078,7 +1078,7 @@ impl ToString for DataBreakpointAccessType {
 fromstr_deser! { DataBreakpointAccessType }
 tostr_ser! { DataBreakpointAccessType }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct DataBreakpoint {
     /// An id representing the data. This id is returned from the
@@ -1096,7 +1096,7 @@ pub struct DataBreakpoint {
 /// Properties of a breakpoint passed to the setInstructionBreakpoints request
 ///
 /// Specfication: [InstructionBreakpoint](https://microsoft.github.io/debug-adapter-protocol/specification#Types_InstructionBreakpoint)
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct InstructionBreakpoint {
     /// The instruction reference of the breakpoint.
