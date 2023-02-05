@@ -64,7 +64,7 @@ impl StdoutWriter {
     }
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Debug, Clone)]
 #[serde(untagged)]
 pub enum Sendable {
     Response(Response),

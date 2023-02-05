@@ -5,7 +5,7 @@ use crate::errors::{DeserializationError, ServerError};
 use crate::line_reader::LineReader;
 use crate::requests::Request;
 use std::io::{Error as StdIoError, ErrorKind as StdIoErrorKind};
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 enum ServerState {
     /// Expecting a header
     Header,
